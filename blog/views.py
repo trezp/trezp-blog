@@ -2,8 +2,16 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
-from . models import Post
+from . models import Post, Log
 # Create your views here.
+
+class LogListView(ListView): 
+  model = Log
+  template_name = 'home.html'
+
+class LogDetailView(DetailView):
+  model = Log
+  template_name = 'log_detail.html'
 
 class BlogListView(ListView):
   model = Post
